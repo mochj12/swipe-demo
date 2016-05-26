@@ -42,14 +42,6 @@ fis.config.merge({
                 reg : /(.*)/,
                 release : '/zt/'+dirnameArr[1]+'/'+dirnameArr[0]+'/$1'
             }
-        ],
-        domain : [
-            //'webmap0.map.bdimg.com',
-            //'webmap1.map.bdimg.com',
-            //'webmap2.map.bdimg.com',
-            //'webmap3.map.bdimg.com',
-            //'webmap4.map.bdimg.com',
-            'http://s0.map.bdimg.com'
         ]
     }
 });
