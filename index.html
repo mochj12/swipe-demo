@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>swiper demo 单页手势滑动</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <meta name="fullscreen" content="true">
+    <meta name="x5-fullscreen" content="true">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="wap-font-scale" content="no">
+    <!-- 适应移动端end -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/keyframes.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/main.css?t=dsf" />
+    <script type="text/javascript">
+    ! function(win, lib) {
+        var timer,
+            doc = win.document,
+            docElem = doc.documentElement,
+
+            vpMeta = doc.querySelector('meta[name="viewport"]'),
+            dpr = 1,
+            scale = 1;
+
+        if (vpMeta) {
+
+            var initial = vpMeta.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+
+            if (initial) {
+                scale = parseFloat(initial[1]); // 已设置的 initialScale
+                dpr = parseInt(1 / scale); // 设备像素比 devicePixelRatio
+            }
+        }
+
+        docElem.setAttribute('data-dpr', dpr);
+
+        function setFontSize() {
+            var winWidth = docElem.getBoundingClientRect().width;
+
+            if (winWidth / dpr > 540) {
+                (winWidth = 540 * dpr);
+            }
+
+            // 根节点 fontSize 根据宽度决定
+            var baseSize = winWidth * 20 / 320;
+
+            docElem.style.fontSize = baseSize + "px";
+        }
+
+        // 调整窗口时重置
+        win.addEventListener("resize", function() {
+            clearTimeout(timer);
+            timer = setTimeout(setFontSize, 300);
+        }, false);
+
+        // orientationchange
+        win.addEventListener("orientationchange", function() {
+            clearTimeout(timer);
+            timer = setTimeout(setFontSize, 300);
+        }, false);
+
+        // pageshow
+        win.addEventListener("pageshow", function(e) {
+            if (e.persisted) {
+                clearTimeout(timer);
+                timer = setTimeout(setFontSize, 300);
+            }
+        }, false);
+
+        // 设置基准字体
+        if ("complete" === doc.readyState) {
+            doc.body.style.fontSize = 20 * dpr + "px";
+        } else {
+            doc.addEventListener("DOMContentLoaded", function() {
+                doc.body.style.fontSize = 20 * dpr + "px";
+            }, false);
+        }
+
+        setFontSize();
+    }(window, window.lib || (window.lib = {}));
+    </script>
+</head>
+
+<body>
+    <div class="pageloading">
+        <div class="imgloading center"><img src='http://hiphotos.baidu.com/doc/pic/item/4b90f603738da977f3538507b751f8198618e39a.jpg'></div>
+        <p class="loading" id="loading">0%</p>
+    </div>
+
+    <div class="pageWraper container">
+        <div class="page1 page" data-src="others/bg1.jpg">
+            <div class="circle absolute tc">
+                <div class="outer">
+                    <img class="height" src="images/cirout.png">
+                </div>
+                <div class="inner absolute tc">
+                    <img class="height" src="images/cirinner.png">
+                    <div class="maintitle absolute tc">
+                        <img class="height" src="images/maintitle.png">
+                    </div>
+                    <div class="title absolute tc">
+                        <img class="titleimg" src="images/title.png">
+                    </div>
+                </div>
+            </div>
+            <div class="moveupcon">
+                <div class="moveup"></div>
+            </div>
+        </div>
+        <div class="page2 page" data-src="others/bg2.jpg">
+            <div class="descon absolute">
+                <div class="desc relative">
+                </div>
+                <div class="textarea">
+                    <p class="ptext ptext1">
+                        风马，藏语称为“隆达”，“隆”意为风，“达”意为马，
+                        <br> 风马旗亦称为“风马经幡”。
+                        <br> 是藏地人民一种神秘而古老的祈福方式，用以寄托藏人祭祀神灵、
+                        祈祥祛难的心愿；
+                    </p>
+                    <p class="ptext ptext2">
+                        风马音乐节，将风马旗象征着的美好寓意继续延续，
+                        <br> 成为风马音乐节固定可延续的象征性符号
+                    </p>
+                    <p class="ptext ptext3">
+                        在风马音乐节，祈福，音乐，汽车文化将融于一体
+                        <br> 带给您与众不同，完全不一样的音乐享受！
+                    </p>
+                </div>
+                <span class="tag tag1">风马</span>
+            </div>
+            <div class="moveupcon">
+                <div class="moveup"></div>
+            </div>
+        </div>
+        <div class="page3 page" data-src="others/bg3.jpg">
+            <div class="btnarea">
+                <ul class="btnlist clearfix">
+                    <li>
+                        <div class="btncon">
+                        </div>
+                        <div class="btninner btninner1"></div>
+                        <p class="name">寻TA大作战</p>
+                    </li>
+                    <li>
+                        <div class="btncon">
+                        </div>
+                        <div class="btninner btninner2"></div>
+                        <p class="name">地图肺力大作战</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="descon absolute">
+                <div class="textarea">
+                    <p class="ptext ptext1">
+                        FIND ME！寻TA大作战！
+                    </p>
+                    <p class="ptext ptext2">
+                        用户以百度地图营地为背景，用立拍得拍摄一张自拍照片，并在照片背面签上自己的名字，并放入性别对应的照片箱。
+                        <br> 参与玩家在箱内抽取照片一张，玩家根据自己抽到的照片，在风马音乐节的48小时内，找到自己抽中照片中的人，即可两人一同前往百度地图营地，兑换精美礼品一份。
+                    </p>
+                </div>
+                <span class="tag tag2">寻T<br>A大作战</span>
+            </div>
+            <div class="moveupcon">
+                <div class="moveup"></div>
+            </div>
+        </div>
+        <div class="page4 page" data-src="others/bg4.jpg">
+            <div class="con">
+                <ul class="tabchange clearfix tc">
+                    <li>
+                        8月1日
+                        <div class="botline absolute">
+                            <span class="arrow"></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="table">
+                    <img class="lazy" data-src="images/81.png">
+                </div>
+            </div>
+            <div class="moveupcon">
+                <div class="moveup"></div>
+            </div>
+        </div>
+        <div class="page5 page" data-src="others/bg5.jpg">
+            <div class="mapcon relative">
+                <div class="map">
+                    <img class="height" src="images/map.png">
+                </div>
+            </div>
+            <div class="moveupcon">
+                <div class="moveup"></div>
+            </div>
+        </div>
+        <div class="page6 page" data-src="others/bg6.jpg">
+            <div class="linecon absolute">
+                <div class="lines">
+                    <img src="images/lines.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="lazy dn" data-src="others/bg1.jpg">
+    <img class="lazy dn" data-src="others/bg2.jpg">
+    <img class="lazy dn" data-src="others/bg3.jpg">
+    <img class="lazy dn" data-src="others/bg4.jpg">
+    <img class="lazy dn" data-src="others/bg5.jpg">
+    <img class="lazy dn" data-src="others/bg6.jpg">
+
+    <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+    <script type="text/javascript" src="js/swiper.js"></script>
+    <script type="text/javascript" src="js/index.js?t=s23df"></script>
+</body>
+
+</html>

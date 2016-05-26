@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+/*page1*/
+.page1.active .inner{
+  opacity: 1;
+  -webkit-transition: all .5s linear;
+}
+
+.tips.active{
+  opacity: .6;
+  -webkit-transition: all 1s linear;
+}
+
+.page1.active .outer{
+  -webkit-animation: scales 1.5s .5s linear infinite;
+}
+
+.page1.active .maintitle{
+  opacity: 1;
+  -webkit-transition: all .5s 1s linear;
+}
+
+/*page2*/
+.page2.active .textarea, .page2.active .tag{
+  opacity: 1;
+  -webkit-transition: all 1s 1s linear;
+}
+/*page3*/
+.page3.active .btnlist li {
+   -webkit-animation: bounceIn 1s 1s linear 1 both;
+}
+
+.page3.active .textarea, .page3.active .tag{
+  opacity: 1;
+  -webkit-transition: all 1s 2s linear;
+}
+
+.page3.active .btncon{
+  -webkit-animation: scales 1s 2s linear infinite;
+}
+
+/*page4*/
+.page4.active .con{
+  opacity: 1;
+  -webkit-transition: all 1s 1s linear;
+}
+
+/*page5*/
+.page5.active .map{
+  opacity: 1;
+  -webkit-transition: all 1s 1s linear;
+}
+
+.page5.active .flag{
+  opacity: 1;
+  -webkit-transition: all 1s 2s linear;
+}
+/*page6*/
+.page6.active .lines{
+  opacity: 1;
+  -webkit-transition: all 1s 1s linear;
+}
+
+.page6.active .btns{
+  -webkit-animation: bounceIn 1s 2s linear both;
+}
+
+.page6.active .flag{
+  opacity: 1;
+  -webkit-transition: all 1s 3s linear;
+}

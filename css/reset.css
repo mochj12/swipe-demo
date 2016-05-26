@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+    font-size: 20px;
+    -webkit-text-size-adjust: 100%;
+    height: 100%;
+}
+body {
+    font-size: 20px;
+    font-family: microsoft yahei, "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    position: relative;
+    height: 100%;
+    background: #ccecf9;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, select, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img {
+    border: 0;
+    display: block;
+    width: 100%;
+}
+
+img.height {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 2;
+}
+
+li {
+    list-style: none;
+}
+caption, th {
+    text-align: left;
+    font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+a:visited {
+    color: #fff;
+}
+.clear {
+    clear: both;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: none;
+}
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+.dn {
+    display: none;
+}
+.tc {
+    text-align: center;
+}
+.tl{
+    text-align: left;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+em {
+    font-style: normal;
+}
+.opacity0{
+    opacity: 0;
+}
+.opacity9{
+    opacity: 0.9;
+}
+/*common*/
+.bgmask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .6;
+  z-index: 999;
+}
