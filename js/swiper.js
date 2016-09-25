@@ -214,8 +214,8 @@
                             $('.page-pre').css(self.setStyle(-self.height));
                         }
                     }
-                    self.container.removeEventListener('touchmove');
-                    self.container.removeEventListener('touchend');
+                    self.container.removeEventListener('touchmove',touchemoveHandle,false);
+                    self.container.removeEventListener('touchend',touchemoveHandle,false);
                 }
 
                 $(window).on('resize', function(event) {
